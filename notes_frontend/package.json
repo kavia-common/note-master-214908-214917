@@ -11,7 +11,8 @@
     "web:build": "CI=1 expo export --platform web",
     "ci:native-check": "bash ./scripts/ci-native-check.sh",
     "gradlew": "node ./gradlew.js",
-    "postinstall": "npx --yes expo install react-native-web@~0.19.10 react-dom@18.2.0 @expo/metro-runtime@~3.2.3 typescript@~5.3.3 @types/react@~18.2.79 @types/react-native@~0.73.0 || true"
+    "ensure:deps": "node scripts/ensure-expo-deps.js",
+    "prepare": "npm run ensure:deps"
   },
   "dependencies": {
     "expo": "~51.0.14",

@@ -15,8 +15,9 @@
   },
   "include": [
     "src",
+    "App.tsx",
     "index.js",
-    "types/**/*.d.ts"
+    "types"
   ],
   "exclude": [
     "node_modules",
