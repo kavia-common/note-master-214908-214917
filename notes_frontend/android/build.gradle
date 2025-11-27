@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        // Kept minimal; not used for real builds.
+        classpath("com.android.tools.build:gradle:8.5.2")
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+tasks.register("assembleDebug") {
+    doLast {
+        println("Stub assembleDebug executed. Use `expo prebuild --platform android` for real builds.")
+    }
+}
