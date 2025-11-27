@@ -9,11 +9,15 @@ Scripts:
 
 Entry files:
 - index.js — registers root component
-- src/App.tsx — main app component
+- src/App.tsx — main app component (TypeScript)
+- src/App.js — JS fallback wrapper that attempts to load the TS App and shows guidance if TS deps are missing
 
 Configuration:
 - app.json — Expo app configuration
-- tsconfig.json — TypeScript configuration (includes src, global types, excludes node_modules). If Expo prompts for missing TS deps, ensure postinstall ran or run: npm install
+- tsconfig.json — TypeScript configuration (includes src/**/*.ts, src/**/*.tsx, index.js, types). If Expo prompts for missing TS deps, install dependencies in this directory:
+  npm ci
+  or
+  npm install
 
 CI usage:
 - This is a managed Expo app without native android/ or ios/ directories.
@@ -34,6 +38,12 @@ TypeScript and Web dependencies:
   - react-dom 18.2.0
   - @expo/metro-runtime ~3.2.3
 - A package-lock.json is committed for CI resolvability.
+
+Detection and fallback:
+- If node_modules have not been installed yet, Expo may report missing TypeScript deps.
+- Install deps to enable the full TS app:
+  npm ci   (preferred)  or  npm install
+- Until dependencies are installed, the app will boot on web using src/App.js and render a helpful message. After installation, Metro will resolve src/App.tsx and render the full app.
 
 Environment variables:
 The app can read EXPO_PUBLIC_* variables provided by the environment. Do not hardcode secrets in code.

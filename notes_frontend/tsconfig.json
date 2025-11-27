@@ -11,11 +11,11 @@
     "paths": {
       "*": ["./*", "./src/*"]
     },
-    "types": []
+    "types": ["react"]
   },
   "include": [
-    "src",
-    "App.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "index.js",
     "types"
   ],
