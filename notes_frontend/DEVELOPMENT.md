@@ -5,6 +5,7 @@ Scripts:
 - npm run web — Starts Expo on web (non-interactive)
 - npm run web:build — Exports a static web build (for previews/CI)
 - npm run ci:native-check — No-op script for CI systems expecting native builds; ensures success without android/ios folders
+- npm run gradlew
 
 Entry files:
 - index.js — registers root component
@@ -12,7 +13,7 @@ Entry files:
 
 Configuration:
 - app.json — Expo app configuration
-- tsconfig.json — TypeScript configuration
+- tsconfig.json — TypeScript configuration (includes src, global types, excludes node_modules). If Expo prompts for missing TS deps, ensure postinstall ran or run: npm install
 
 CI usage:
 - This is a managed Expo app without native android/ or ios/ directories.
@@ -23,6 +24,16 @@ CI usage:
   - android/gradlew (exits successfully)
   - ios/build.sh (exits successfully)
   These are provided solely to prevent CI failures and do not perform real native builds.
+
+TypeScript and Web dependencies:
+- Aligned with Expo SDK 51:
+  - typescript ~5.3.3
+  - @types/react ~18.2.79
+  - @types/react-native ~0.73.0
+  - react-native-web ~0.19.10
+  - react-dom 18.2.0
+  - @expo/metro-runtime ~3.2.3
+- A package-lock.json is committed for CI resolvability.
 
 Environment variables:
 The app can read EXPO_PUBLIC_* variables provided by the environment. Do not hardcode secrets in code.
