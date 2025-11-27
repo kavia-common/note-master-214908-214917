@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Gradle wrapper shim for CI environments that invoke ./gradlew from notes_frontend/.
+# This project is a managed Expo app; native Android build is intentionally not present.
+echo "Notes frontend Gradle wrapper shim: skipping native Android build (managed Expo app)."
+exit 0

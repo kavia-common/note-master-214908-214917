@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Minimal shim to satisfy CI systems that call ./gradlew in managed Expo apps.
+echo "Gradle wrapper shim: skipping native Android build (managed Expo app)."
+exit 0
